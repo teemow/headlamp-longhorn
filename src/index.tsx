@@ -12,7 +12,7 @@ registerSidebarEntry({
   parent: null, // null makes it a top-level entry
   name: 'longhorn',
   label: 'Longhorn',
-  url: '/longhorn', // Default view, e.g., Volumes list
+  url: '/longhorn/volumes',
   icon: 'mdi:cow', // Example icon, choose a suitable one
 });
 
