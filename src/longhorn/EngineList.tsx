@@ -6,7 +6,7 @@ import {
 } from '@kinvolk/headlamp-plugin/lib/components/common';
 import { useFilterFunc } from '@kinvolk/headlamp-plugin/lib/Utils';
 import { engineClass } from './crd';
-import { NameLink } from '../helpers';
+// import { NameLink } from '../helpers'; // Don't use NameLink for now
 import Table from '../common/Table';
 import StatusLabel from '../common/StatusLabel'; // Import StatusLabel for Engine state
 
@@ -26,8 +26,28 @@ export function Engines() {
       <Table
         data={engines}
         columns={[
-          NameLink(engineClass(), 'longhorn/engines'), // Link to Engine detail
-          'namespace', // Engines are namespaced
+          // Define Name column directly with Link
+          {
+            header: 'Name',
+            accessorKey: 'metadata.name',
+            Cell: ({ cell, row }: { cell: any; row: { original: any } }) => {
+              const name = row.original?.metadata?.name;
+              const namespace = row.original?.metadata?.namespace;
+              if (!name || !namespace) {
+                return <span>{cell.getValue() ?? '-'}</span>;
+              }
+              return (
+                <Link 
+                  routeName='longhorn/engine/detail' 
+                  params={{ name, namespace }}
+                >
+                  <span>{cell.getValue()}</span>
+                </Link>
+              );
+            }
+          },
+          // NameLink(engineClass(), 'longhorn/engine/detail'), // Use direct Cell instead
+          'namespace', 
           {
             header: 'State',
             accessorKey: 'status.currentState',
@@ -41,17 +61,19 @@ export function Engines() {
           {
              header: 'Volume',
              accessorKey: 'spec.volumeName',
-             Cell: ({ cell, row }) => (
-                <Link 
-                  routeName='longhorn/volume/detail' 
-                  params={{
-                    name: cell.getValue(),
-                    namespace: row.original.metadata.namespace
-                  }}
-                >
-                  {cell.getValue()}
-                </Link>
-             )
+             Cell: ({ cell, row }) => {
+                const volumeName = cell.getValue();
+                const namespace = row.original.metadata.namespace;
+                if (!volumeName || !namespace) return <span>{volumeName ?? '-'}</span>;
+                return (
+                  <Link 
+                    routeName='longhorn/volume/detail' 
+                    params={{ name: volumeName, namespace }}
+                  >
+                    {volumeName}
+                  </Link>
+                )
+             }
           },
           {
             header: 'Image',

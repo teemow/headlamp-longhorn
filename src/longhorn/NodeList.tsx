@@ -24,7 +24,7 @@ export function Nodes() {
         columns={[
           // Assuming Longhorn nodes are named after K8s nodes and not namespaced for detail view
           // We'll link to a custom Longhorn node detail view
-          NameLink(nodeClass(), 'longhorn/nodes'),
+          NameLink(nodeClass(), 'longhorn/node/detail'),
           {
             header: 'State',
             accessorFn: (item: any) => <StatusLabel item={item} />, // Use StatusLabel for node state
