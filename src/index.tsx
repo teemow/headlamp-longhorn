@@ -6,13 +6,17 @@ import {
 // Import Longhorn list and detail view components
 import { Volumes } from './longhorn/VolumeList';
 import { VolumeDetail } from './longhorn/VolumeDetail';
+import { Nodes } from './longhorn/NodeList'; // Import Nodes list component
+import { NodeDetail } from './longhorn/NodeDetail'; // Import Node detail component
+import { Engines } from './longhorn/EngineList'; // Import Engines list component
+import { EngineDetail } from './longhorn/EngineDetail'; // Import Engine detail component
 
 // Register a top-level sidebar entry for Longhorn
 registerSidebarEntry({
   parent: null, // null makes it a top-level entry
   name: 'longhorn',
   label: 'Longhorn',
-  url: '/longhorn/volumes',
+  url: '/longhorn/volumes', // Default to Volumes view
   icon: 'mdi:cow', // Example icon, choose a suitable one
 });
 
@@ -23,6 +27,22 @@ registerSidebarEntry({
   label: 'Volumes',
   url: '/longhorn/volumes',
   // icon: 'mdi:database', // Optional icon for sub-entry
+});
+
+// Register sidebar entry for Nodes
+registerSidebarEntry({
+  parent: 'longhorn',
+  name: 'nodes',
+  label: 'Nodes',
+  url: '/longhorn/nodes',
+});
+
+// Register sidebar entry for Engines
+registerSidebarEntry({
+  parent: 'longhorn',
+  name: 'engines',
+  label: 'Engines',
+  url: '/longhorn/engines',
 });
 
 // Route for the main Longhorn Volumes list view
@@ -46,7 +66,50 @@ registerRoute({
   exact: true,
 });
 
-// Placeholder for other Longhorn sections (Nodes, Backups, Settings, etc.)
+// Route for Nodes list view
+registerRoute({
+  path: '/longhorn/nodes',
+  name: 'longhorn/nodes',
+  parent: 'longhorn',
+  sidebar: 'nodes',
+  component: Nodes, // Use the Nodes component
+  exact: true,
+});
+
+// Route for Node detail view
+registerRoute({
+  // Longhorn Node CRDs are namespaced (longhorn-system) but named after K8s nodes.
+  // We don't need namespace in the URL path here, as we fetch using the name param
+  // and a fixed namespace (e.g., 'longhorn-system') in the component.
+  path: '/longhorn/nodes/:name', 
+  name: 'longhorn/node/detail',
+  parent: 'longhorn',
+  sidebar: 'nodes',
+  component: NodeDetail, // Use the NodeDetail component
+  exact: true,
+});
+
+// Route for Engines list view
+registerRoute({
+  path: '/longhorn/engines',
+  name: 'longhorn/engines', // Unique route name
+  parent: 'longhorn',
+  sidebar: 'engines',
+  component: Engines, // Use the Engines component
+  exact: true,
+});
+
+// Route for Engine detail view
+registerRoute({
+  path: '/longhorn/engines/:namespace/:name',
+  name: 'longhorn/engine/detail',
+  parent: 'longhorn',
+  sidebar: 'engines',
+  component: EngineDetail, // Use the EngineDetail component
+  exact: true,
+});
+
+// Placeholder for other Longhorn sections (Backups, Settings, etc.)
 // Register sidebar entries and routes for them similarly...
 
 /* Example: Nodes section
