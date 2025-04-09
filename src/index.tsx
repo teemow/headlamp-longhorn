@@ -10,6 +10,8 @@ import { Nodes } from './longhorn/NodeList'; // Import Nodes list component
 import { NodeDetail } from './longhorn/NodeDetail'; // Import Node detail component
 import { Engines } from './longhorn/EngineList'; // Import Engines list component
 import { EngineDetail } from './longhorn/EngineDetail'; // Import Engine detail component
+import { Replicas } from './longhorn/ReplicaList'; // Import Replicas list component
+import { ReplicaDetail } from './longhorn/ReplicaDetail'; // Import Replica detail component
 
 // Register a top-level sidebar entry for Longhorn
 registerSidebarEntry({
@@ -43,6 +45,14 @@ registerSidebarEntry({
   name: 'engines',
   label: 'Engines',
   url: '/longhorn/engines',
+});
+
+// Register sidebar entry for Replicas
+registerSidebarEntry({
+  parent: 'longhorn',
+  name: 'replicas',
+  label: 'Replicas',
+  url: '/longhorn/replicas',
 });
 
 // Route for the main Longhorn Volumes list view
@@ -106,6 +116,26 @@ registerRoute({
   parent: 'longhorn',
   sidebar: 'engines',
   component: EngineDetail, // Use the EngineDetail component
+  exact: true,
+});
+
+// Route for Replicas list view
+registerRoute({
+  path: '/longhorn/replicas',
+  name: 'longhorn/replicas', // Unique route name
+  parent: 'longhorn',
+  sidebar: 'replicas',
+  component: Replicas, // Use the Replicas component
+  exact: true,
+});
+
+// Route for Replica detail view
+registerRoute({
+  path: '/longhorn/replicas/:namespace/:name',
+  name: 'longhorn/replica/detail',
+  parent: 'longhorn',
+  sidebar: 'replicas',
+  component: ReplicaDetail, // Use the ReplicaDetail component
   exact: true,
 });
 
