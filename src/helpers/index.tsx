@@ -1,7 +1,7 @@
 import { Link } from '@kinvolk/headlamp-plugin/lib/components/common';
 import { KubeObjectClass } from '@kinvolk/headlamp-plugin/lib/lib/k8s/cluster';
 import React from 'react';
-import { PluralName } from './pluralName'; // Assuming pluralName helper exists or will be created
+import { PluralName } from './pluralName';
 
 /**
  * Generates a table column definition for linking to a resource's details page.

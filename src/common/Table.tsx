@@ -11,7 +11,7 @@ import { KubeCRD } from '@kinvolk/headlamp-plugin/lib/lib/k8s/crd';
 import React from 'react';
 // Adjust import if helpers structure differs
 import { NameLink } from '../helpers';
-import StatusLabel from './StatusLabel'; // Assuming StatusLabel exists or will be created
+import StatusLabel from './StatusLabel';
 
 type CommonColumnType =
   | 'namespace'
