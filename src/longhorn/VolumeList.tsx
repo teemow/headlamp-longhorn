@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
 import {
   SectionBox,
   SectionFilterHeader,
-  Link,
 } from '@kinvolk/headlamp-plugin/lib/components/common';
 import { useFilterFunc } from '@kinvolk/headlamp-plugin/lib/Utils';
-import { volumeClass } from './crd';
-import { NameLink, formatBytes } from '../helpers'; // Import NameLink and formatBytes
+import React from 'react';
+// Import StatusLabel
 import Table from '../common/Table';
-import StatusLabel from '../common/StatusLabel'; // Import StatusLabel
+import { formatBytes,NameLink } from '../helpers'; // Import NameLink and formatBytes
+import { volumeClass } from './crd';
 
 export function Volumes() {
   const filterFunction = useFilterFunc();

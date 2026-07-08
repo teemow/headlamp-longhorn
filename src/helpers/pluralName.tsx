@@ -4,7 +4,7 @@
 // This method is required because the kustomization inventory provides only the singular name of the entry,
 // whereas the k8s REST API expects a plural name.
 
-import { indexOf } from 'lodash'; // Assuming lodash is available via Headlamp
+// Assuming lodash is available via Headlamp
 
 const consonants = 'bcdfghjklmnpqrstvwxyz';
 

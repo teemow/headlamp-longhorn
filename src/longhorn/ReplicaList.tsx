@@ -1,15 +1,15 @@
-import React from 'react';
 import {
+  DateLabel, // For Last Healthy At
+  Link,
   SectionBox,
   SectionFilterHeader,
-  Link,
-  DateLabel, // For Last Healthy At
 } from '@kinvolk/headlamp-plugin/lib/components/common';
 import { useFilterFunc } from '@kinvolk/headlamp-plugin/lib/Utils';
-import { replicaClass } from './crd';
+import React from 'react';
+// For Replica state
 // import { NameLink } from '../helpers'; // Don't use NameLink for now
 import Table from '../common/Table';
-import StatusLabel from '../common/StatusLabel'; // For Replica state
+import { replicaClass } from './crd';
 
 export function Replicas() {
   const filterFunction = useFilterFunc();

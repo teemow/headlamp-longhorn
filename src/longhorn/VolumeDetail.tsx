@@ -81,7 +81,7 @@ export function VolumeDetail() {
       {/* Render ConditionsTable if conditions exist */}
       {volume?.jsonData?.status?.conditions && (
         <SectionBox title="Conditions">
-          <ConditionsTable resource={volume.jsonData} showLastUpdate={true} />
+          <ConditionsTable resource={volume.jsonData} showLastUpdate />
         </SectionBox>
       )}
       {/* Render Replicas table */}

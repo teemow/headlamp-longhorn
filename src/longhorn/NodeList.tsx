@@ -1,10 +1,10 @@
-import React from 'react';
 import { SectionBox, SectionFilterHeader } from '@kinvolk/headlamp-plugin/lib/components/common';
 import { useFilterFunc } from '@kinvolk/headlamp-plugin/lib/Utils';
-import { nodeClass } from './crd';
-import { NameLink } from '../helpers';
-import Table from '../common/Table';
+import React from 'react';
 import StatusLabel from '../common/StatusLabel'; // Import StatusLabel for Node state
+import Table from '../common/Table';
+import { NameLink } from '../helpers';
+import { nodeClass } from './crd';
 
 export function Nodes() {
   const filterFunction = useFilterFunc();

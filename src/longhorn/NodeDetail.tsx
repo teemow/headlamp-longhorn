@@ -1,14 +1,13 @@
 import {
   ConditionsTable,
   MainInfoSection,
-  NameValueTable,
   SectionBox,
   Table, // Use our common Table
 } from '@kinvolk/headlamp-plugin/lib/components/common';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { nodeClass } from './crd';
 import StatusLabel from '../common/StatusLabel';
+import { nodeClass } from './crd';
 // import { ObjectEvents } from '../helpers';
 
 export function NodeDetail() {
@@ -99,7 +98,7 @@ export function NodeDetail() {
       {/* Conditions Table */}
       {node?.jsonData?.status?.conditions && (
         <SectionBox title="Conditions">
-          <ConditionsTable resource={node.jsonData} showLastUpdate={true} />
+          <ConditionsTable resource={node.jsonData} showLastUpdate />
         </SectionBox>
       )}
 

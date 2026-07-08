@@ -1,14 +1,14 @@
-import React from 'react';
 import {
+  Link,
   SectionBox,
   SectionFilterHeader,
-  Link,
 } from '@kinvolk/headlamp-plugin/lib/components/common';
 import { useFilterFunc } from '@kinvolk/headlamp-plugin/lib/Utils';
-import { engineClass } from './crd';
+import React from 'react';
+// Import StatusLabel for Engine state
 // import { NameLink } from '../helpers'; // Don't use NameLink for now
 import Table from '../common/Table';
-import StatusLabel from '../common/StatusLabel'; // Import StatusLabel for Engine state
+import { engineClass } from './crd';
 
 export function Engines() {
   const filterFunction = useFilterFunc();

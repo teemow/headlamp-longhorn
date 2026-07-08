@@ -2,16 +2,15 @@ import {
   registerRoute,
   registerSidebarEntry,
 } from '@kinvolk/headlamp-plugin/lib';
-
+import { EngineDetail } from './longhorn/EngineDetail'; // Import Engine detail component
+import { Engines } from './longhorn/EngineList'; // Import Engines list component
+import { NodeDetail } from './longhorn/NodeDetail'; // Import Node detail component
+import { Nodes } from './longhorn/NodeList'; // Import Nodes list component
+import { ReplicaDetail } from './longhorn/ReplicaDetail'; // Import Replica detail component
+import { Replicas } from './longhorn/ReplicaList'; // Import Replicas list component
+import { VolumeDetail } from './longhorn/VolumeDetail';
 // Import Longhorn list and detail view components
 import { Volumes } from './longhorn/VolumeList';
-import { VolumeDetail } from './longhorn/VolumeDetail';
-import { Nodes } from './longhorn/NodeList'; // Import Nodes list component
-import { NodeDetail } from './longhorn/NodeDetail'; // Import Node detail component
-import { Engines } from './longhorn/EngineList'; // Import Engines list component
-import { EngineDetail } from './longhorn/EngineDetail'; // Import Engine detail component
-import { Replicas } from './longhorn/ReplicaList'; // Import Replicas list component
-import { ReplicaDetail } from './longhorn/ReplicaDetail'; // Import Replica detail component
 
 // Register a top-level sidebar entry for Longhorn
 registerSidebarEntry({
