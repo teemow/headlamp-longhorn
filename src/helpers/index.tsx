@@ -1,8 +1,9 @@
 import { Link } from '@kinvolk/headlamp-plugin/lib/components/common';
 import { KubeObjectClass } from '@kinvolk/headlamp-plugin/lib/lib/k8s/cluster';
 import React from 'react';
-import { PluralName } from './pluralName';
-import { formatBytes } from './formatters';
+
+export { formatBytes } from './formatters';
+export { PluralName } from './pluralName';
 
 /**
  * Generates a table column definition for linking to a resource's details page.
@@ -26,7 +27,7 @@ export function NameLink(resourceClass: KubeObjectClass, detailRouteName: string
       }
 
       // Determine required params based on the route name
-      let params: Record<string, string> = { name: resourceName }; // Use Record for flexibility
+      const params: Record<string, string> = { name: resourceName }; // Use Record for flexibility
       let linkIsPossible = true;
 
       // Define routes that require namespace explicitly

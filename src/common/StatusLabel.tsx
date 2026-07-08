@@ -20,7 +20,7 @@ export default function StatusLabel(props: StatusLabelProps) {
   const longhornState = item.jsonData.status.state;
   if (longhornState) {
     let statusType: 'success' | 'warning' | 'error' | '' = '';
-    let statusText = longhornState;
+    const statusText = longhornState;
 
     switch (longhornState.toLowerCase()) {
       case 'attached':

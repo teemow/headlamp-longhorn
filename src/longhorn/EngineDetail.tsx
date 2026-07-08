@@ -1,13 +1,12 @@
 import {
-  MainInfoSection,
-  NameValueTable,
-  SectionBox,
   Link, // Import Link for navigation
+  MainInfoSection,
+  SectionBox,
 } from '@kinvolk/headlamp-plugin/lib/components/common';
 import React from 'react';
 import { useParams } from 'react-router-dom';
+// Assuming StatusLabel can handle engine states
 import { engineClass } from './crd';
-import StatusLabel from '../common/StatusLabel'; // Assuming StatusLabel can handle engine states
 // import { ObjectEvents } from '../helpers';
 
 export function EngineDetail() {

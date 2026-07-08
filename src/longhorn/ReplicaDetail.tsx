@@ -1,9 +1,8 @@
 import {
-  MainInfoSection,
-  NameValueTable,
-  SectionBox,
-  Link,
   DateLabel,
+  Link,
+  MainInfoSection,
+  SectionBox,
 } from '@kinvolk/headlamp-plugin/lib/components/common';
 import React from 'react';
 import { useParams } from 'react-router-dom';
